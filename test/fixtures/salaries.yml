@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  per_month: 1.5
+  ctc: 1.5
+  pf: MyString
+  tds: MyString
+  user_id: 1
+
+two:
+  per_month: 1.5
+  ctc: 1.5
+  pf: MyString
+  tds: MyString
+  user_id: 1

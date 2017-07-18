@@ -1,0 +1,8 @@
+$('#container').html("<%= escape_javascript (render partial: 'show', locals: { employee: @employee}) %>");
+document.title = "Projects"
+if (history && history.pushState) {
+	history.pushState(null, document.title, "<%= employee_path(@employee)%>");
+	$(window).bind("popstate", function(){
+    $.getScript(location.href);
+  });
+}

@@ -1,0 +1,8 @@
+$('#container').html("<%= escape_javascript (render partial: 'index', locals: { reimbursement: @reimbursement, reimbursements: @reimbursements}) %>");
+document.title = "Projects"
+if (history && history.pushState) {
+	history.pushState(null, document.title, "<%= reimbursement_path(@reimbursement)%>");
+	$(window).bind("popstate", function(){
+    $.getScript(location.href);
+  });
+}

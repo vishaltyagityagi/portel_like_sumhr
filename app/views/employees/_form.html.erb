@@ -1,0 +1,14 @@
+<div id="container">
+
+<%= form_for employee, remote: true  do |e|%>
+	<%= e.label :department%><br>
+
+	<%= e.select :department, Employee::DEPARTMENT %><br>
+	<%= e.label :task%><br>
+	<%= e.select :task, Employee::TASK %><br>
+	<%= e.label :work_comment%><br>
+	<%= e.text_area :work_comment%><br>
+	<%= e.submit "Submit" %>
+<% end %>
+</div>
+

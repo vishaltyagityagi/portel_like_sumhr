@@ -1,0 +1,41 @@
+<div id= "container">
+<h1>Listing Details</h1>
+<p id="notice"><%= notice %></p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Apply Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Ip address</th>
+      <th>Action</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<%@reimbursements.each do |reimbursement|%>
+      <tr>
+        <td><%=reimbursement.created_at.strftime('%d-%m-%y')%></td>
+        <td><%=reimbursement.title%></td>
+        <td><%=reimbursement.description%></td>
+        <td><%=current_user.current_sign_in_ip%></td>
+        <td><%=link_to "Back", :back%></td>
+        <% if reimbursement.created_at.strftime('%d-%m-%y') == Date.today.strftime('%d-%m-%y') %>
+          <td><%=link_to "Today Active", nil,{:style=>'color:green;'}%></td>
+        <% else %>
+          <td><%=link_to "Old", nil,{:style=>'color:red;'}%></td>
+        <% end %>
+       
+      </tr>
+<% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+
+

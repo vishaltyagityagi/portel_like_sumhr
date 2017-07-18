@@ -1,0 +1,47 @@
+<div id= "container">
+<h1>Listing Details</h1>
+<p id="notice"><%= notice %></p>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Apply Date</th>
+      <th>Description</th>
+      <th>Ip address</th>
+      <th>Action</th>
+      <th>Applied</th>
+      <th>Leave Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<%@leaves.each do |leave|%>
+      <tr>
+        <td><%=leave.created_at.strftime('%d-%m-%y')%></td>
+        <td><%=leave.description%></td>
+        <td><%=current_user.current_sign_in_ip%></td>
+        <td><%=link_to "Back", :back%></td>
+        <% if leave.created_at.strftime('%d-%m-%y') == Date.today.strftime('%d-%m-%y') %>
+          <td><%=link_to "Today", nil,{:style=>'color:green;'}%></td>
+        <% else %>
+          <td><%=link_to "Old", nil,{:style=>'color:red;'}%></td>
+        <% end %>
+        <% if leave.approve==true %>
+          <td><%=link_to "Approved", nil,{:style=>'color:green;'}%></td>
+        <% elsif leave.cancel==true  %>
+          <td><%=link_to "Canceled", nil,{:style=>'color:red;'}%></td>
+        <% else %>
+          <td><%=link_to "Pending", nil,{:style=>'color:orange;'}%></td>
+        <% end %>
+       
+      </tr>
+<% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+
+

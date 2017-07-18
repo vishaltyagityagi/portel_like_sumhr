@@ -1,0 +1,8 @@
+$('#container').html("<%= escape_javascript (render partial: 'form', locals: { leave: @leave}) %>");
+document.title = "Projects"
+if (history && history.pushState) {
+	history.pushState(null, document.title, "<%= new_home_path%>");
+	$(window).bind("popstate", function(){
+    $.getScript(location.href);
+  });
+}

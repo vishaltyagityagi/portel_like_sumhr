@@ -1,0 +1,12 @@
+<div id="container">
+
+<%= form_for reimbursement, remote: true  do |r|%>
+	<%= r.label :title%><br>
+	<%= r.text_field :title%><br>
+	<%= r.label :description%><br>
+	<%= r.text_area :description%><br>
+	<%= r.submit "Submit" %>
+<% end %>
+<%=link_to "Show", reimbursements_path%>
+</div>
+

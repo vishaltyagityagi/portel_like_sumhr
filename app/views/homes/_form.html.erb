@@ -1,0 +1,10 @@
+<div id="container">
+
+<%= form_for leave, remote: true  do |r|%>
+	<%= r.label :description%><br>
+	<%= r.text_area :description%><br>
+	<%= r.submit "Submit" %>
+<% end %>
+<%=link_to "Show", homes_path%>
+</div>
+
